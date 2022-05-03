@@ -3,7 +3,7 @@
 :root {
     --font-family: 'Questrial', sans-serif;
     --font-size: 20px;
-    --title-font: 'Bungee Shade', cursive;
+    --title-font: 'Questrial', sans-serif;
     --title-color: rgb(58, 58, 58);
     --background-color: white;
     --submit-bg-btn: rgb(0, 54, 172);
@@ -45,7 +45,7 @@ header {
 header h1 {
     font-family: var(--title-font);
     color: var(--title-color);
-    font-size: .7rem;
+    font-size: 1.2rem;
 }
 main{
     flex-direction: row;
@@ -58,8 +58,8 @@ div#imglogo {
 
 div#imglogo img{
     display: block;
-    max-width: 300px;
-    max-height: 104px;
+    max-width: 1800px;
+    max-height: 180px;
     width: auto;
     height: auto;
 }
