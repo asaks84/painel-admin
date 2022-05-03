@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
     <title>senna - Login</title>
+
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
-    
+    <div id="container" class="flex">
+        <header>
+            <div id="imglogo">
+                <img src="http://localestacionamento.com.br/sys/senna/imagens/login.jpg" alt="">
+                <h1>garagePark</h1>
+            </div>
+        </header>
+        <main class="flex">
+            <div id="login">
+                <form action="#0" method="post" id="loginForm">
+                    <div>
+                        <input type="text" id="username" name="username" required placeholder=" " />
+                        <label for="username">Login</label>
+                    </div>
+                    <div>
+                        <input type="password" name="password" id="password" required placeholder=" ">
+                        <label for="password">Senha</label>
+                    </div>
+                    <div>
+                        <input type="submit" value="Entrar">
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <p>developed by: <a href="http://theac.com.br" target="_blank">theac team</a></p>
+        </footer>
+    </div>
 </body>
+
 </html>

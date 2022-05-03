@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Questrial&display=swap');
+
+:root {
+    --font-family: 'Questrial', sans-serif;
+    --font-size: 20px;
+    --title-font: 'Bungee Shade', cursive;
+    --title-color: rgb(58, 58, 58);
+    --background-color: white;
+    --submit-bg-btn: rgb(0, 54, 172);
+    --submit-text-color-btn: white;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    height: 100%;
+    background-color: var(--background-color);
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.flex {
+    display: flex;
+}
+
+header {
+    margin-bottom: auto;
+    text-align: center;
+}
+
+header h1 {
+    font-family: var(--title-font);
+    color: var(--title-color);
+    font-size: .7rem;
+}
+main{
+    flex-direction: row;
+    gap: 30px;
+}
+
+div#imglogo {
+    align-items: center;
+}
+
+div#imglogo img{
+    display: block;
+    max-width: 300px;
+    max-height: 104px;
+    width: auto;
+    height: auto;
+}
+
+form#loginForm {
+    min-width: 250px;
+    position: relative;
+}
+
+form#loginForm>div {
+    position: relative;
+    border: 1px solid #ccc;
+    margin: 2px;
+}
+
+form#loginForm>div>label {
+    opacity: 0.5;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: .8rem;
+}
+
+form#loginForm>div>input {
+    width: 100%;
+    border: 0;
+    padding: 20px 20px 20px 20px;
+    font-size: .8rem;
+}
+form#loginForm>div>input:focus{
+    outline: 0;
+}
+
+form#loginForm>div>input:focus+label {
+    opacity: 0;
+}
+form#loginForm>div>input[type="submit"]{
+    box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+	background-color:#007dc1;
+	border-radius:3px;
+	border:1px solid #124d77;
+	display:inline-block;
+    text-decoration:none;
+	text-shadow:0px 1px 0px #154682;
+    color:white;
+}
+form#loginForm>div>input[type="submit"]:hover{
+    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+	background-color:#0061a7;
+}
+form#loginForm>div>input[type="submit"]:active {
+	position:relative;
+	top:1px;
+}
+footer {
+    margin-top: auto;
+    text-align: center;
+}
