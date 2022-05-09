@@ -1,0 +1,23 @@
+{
+  "name": "painel-admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build css": "tailwindcss build ./source/style.css -o ./public/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asaks84/painel-admin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asaks84/painel-admin/issues"
+  },
+  "homepage": "https://github.com/asaks84/painel-admin#readme",
+  "dependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}
