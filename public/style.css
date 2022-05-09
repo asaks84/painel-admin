@@ -554,21 +554,49 @@ form>div>label {
   top: 20px;
   left: 20px;
   font-size: .8rem;
+  transition: all 100ms linear;
 }
 
-form#loginForm>div>input {
+form>div>input {
   width: 100%;
   border: 0;
   padding: 20px 20px 20px 20px;
   font-size: .8rem;
 }
 
-form>div>input:focus {
+form>div>input:not(:-moz-placeholder-shown):not([type="submit"]) {
   outline: 0;
+  padding: 25px 20px 15px 20px;
 }
 
-form>div>input:focus+label {
-  opacity: 0;
+form>div>input:not(:-ms-input-placeholder):not([type="submit"]) {
+  outline: 0;
+  padding: 25px 20px 15px 20px;
+}
+
+form>div>input:focus,
+form>div>input:not(:placeholder-shown):not([type="submit"]) {
+  outline: 0;
+  padding: 25px 20px 15px 20px;
+}
+
+form>div>input:not(:-moz-placeholder-shown)+label{
+  font-size: .5rem;
+  top: 5px;
+  left: 5px;
+}
+
+form>div>input:not(:-ms-input-placeholder)+label{
+  font-size: .5rem;
+  top: 5px;
+  left: 5px;
+}
+
+form>div>input:focus+label,
+form>div>input:not(:placeholder-shown)+label{
+  font-size: .5rem;
+  top: 5px;
+  left: 5px;
 }
 
 form>div>input[type="submit"] {
