@@ -8,7 +8,8 @@ module.exports = {
       bgSearchBar: '#00171F',
       headers: '#003459',
       bgMain: '#EBF9FF',
-      textColor: '#00171F'
+      textColor: '#00171F',
+      white: '#FFF'
 
 
     },
