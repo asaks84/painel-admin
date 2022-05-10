@@ -79,8 +79,14 @@ div#imglogo img {
 
 .brand img{
     display: block;
-    width: 90px;
-    height: 90px;
+    max-width: 177px;
+    max-height: 35px;
+    width: auto;
+    height: auto;
+}
+#wrapper {
+    display: grid;
+    grid-template-columns: min-content 1fr;
 }
 
 /* SPECIFIC FORMS SETTINGS */
@@ -172,6 +178,5 @@ form#search div input:placeholder-shown {
 }
 
 form#search div input:focus{
-    background-color: rgba(6, 0, 94, 0.473);
     width: 32vw;
 }
