@@ -14,8 +14,8 @@
 <body>
     <div id="wrapper" class="bg-bgMain"> <!-- Full container grid -->
         
-        <header class="bg-bgHeader col-start-1 col-end-3 flex py-0.5">
-            <div class="brand w-52 ml-3 flex">
+        <header class="flex">
+            <div class="brand flex">
                 <img src="./images/logo-cp-admin.png" alt="" class="">
             </div>
             <div class="flex">
@@ -31,7 +31,7 @@
 
             </div>
         </header>
-        <nav class="w-52 col-start-1 col-end-2 bg-white">
+        <nav class="">
             <!-- main menu start here -->
             <ul> Firts Menu
                 <li>Item 1</li>
@@ -40,9 +40,9 @@
             </ul>
         </nav>
 
-        <section id="content" class="col-start-2 col-end-3 flex flex-col relative"> 
-
-            <section class="highlight bg-bgHeader text-white p-2 pl-5 relative flex flex-col"> <!-- highlight content -->
+        <section id="highlight" class="">  <!-- highlight content -->
+            
+            <section class="">  <!-- hightlight header -->
                 <h2 class=" text-2xl my-1.5">Dashboard</h2>
                 <h3 class="text-xs">${name}, bem vindo.</h3>
                 <p class="text-xs my-2">
@@ -50,14 +50,17 @@
                     Mensagem de lembrete
                 </p>
             </section>
-            
-            <main class="col-start-2 col-end-3 grid grid-cols-2 gap-4 mx-4 bg-white"> <!-- main page content -->
+            <section class="highlightBoxed grid grid-cols-2 gap-4 mx-4 bg-white"> <!-- section highlight content -->
                 <div class="card col-span-2 bg-cardYellow"></div>
+                <div class="card bg-cardBlue"></div>
+                <div class="card bg-cardRed"></div>
+            </section>
+            <section class="grid grid-cols-2 gap-4 mx-4 bg-white"> <!-- section page content -->
                 <div class="card bg-cardBlue"></div>
                 <div class="card bg-cardRed"></div>
                 <div class="card "></div>
                 <div class="card bg-cardGreen"></div>
-            </main>
+            </section>
         </section>
 
         <footer>

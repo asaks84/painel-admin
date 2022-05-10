@@ -7,7 +7,7 @@
     --title-color: rgb(58, 58, 58);
     --background-color: white;
     --bgHeader: #003459;
-    --bgSearchBar: #00171F;
+    --bgSearchBar: #00171f59;
     --headers: #003459;
     --bgMain: #EBF9FF;
     --textColor: #00171F;
@@ -15,6 +15,7 @@
     --cardBlue: rgba(0, 174, 255, 0.774);
     --cardRed: rgba(255, 42, 42, 0.774);
     --cardYellow: rgba(255, 251, 0, 0.842);
+    --headerMargin: .3rem 0;
 }
 
 html,
@@ -28,11 +29,22 @@ body {
     background-color: var(--background-color);
 
 }
+*{
+    box-sizing: border-box;
+}
 
-/* SITE STRUCTURE */
+// common classes classes
 
-/* LOGIN STRUCTURE */
+.flex {
+    display: flex
+}
+.grid {
+    display: grid;
+}
 
+// SITE STRUCTURE 
+
+// LOGIN STRUCTURE 
 #container {
     flex-direction: column;
     align-items: center;
@@ -40,34 +52,27 @@ body {
     height: 100%;
     justify-content: space-around;
 }
-
-
 .login header {
     margin-bottom: auto;
     text-align: center;
 }
-
 .login header h3 {
     font-family: var(--title-font);
     color: var(--title-color);
     font-size: 1rem;
 }
-
 .login main {
     flex-direction: row;
     gap: 30px;
 }
-
 .login footer {
     margin-top: auto;
     text-align: center;
     font-size: .7rem;
 }
-
 div#imglogo {
     align-items: center;
 }
-
 div#imglogo img {
     display: block;
     max-width: 180px;
@@ -76,7 +81,7 @@ div#imglogo img {
     height: auto;
 }
 
-/* LAYOUT STRUCTURE */
+// LAYOUT STRUCTURE 
 
 .brand img {
     display: block;
@@ -90,14 +95,30 @@ div#imglogo img {
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-template-rows: min-content 1fr;
+    background-color: var(--bgMain);
+}
+
+// HEADER
+
+header{
+    grid-area: 1 / 1 / 1 / 3;
+    background: var(--bgHeader);
 }
 
 header>div {
-    height: 2.2rem;
+    height: fit-content;
+    width: 12.5rem;
     align-items: center;
+    margin: var(--headerMargin);
 }
 
+
+
+// NAV
+
 nav {
+    grid-column: 1 / 2;
+    width: 12.5rem;
     box-shadow: 0px 2px 11px 2px rgba(0, 0, 0, 0.07);
 }
 
@@ -199,50 +220,56 @@ form#loginForm>div>input[type="submit"] {
 
 /* SEARCH FORM */
 
-form#search>div {
-    position: relative;
-}
+form#search{
+    >div {
+        position: relative;
 
-form#search>div>label {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    display: block;
-    color: white;
-    opacity: .5;
-    font-style: italic;
-    font-size: .8rem;
-    transition: opacity .5s .25s ease;
-    cursor: text;
-}
+        >input {
+            width: 20vw;
+            transition: width .5s .25s ease, background-color .5s .25s ease;
+            border: 0;
+            padding: .5rem 1.5rem .5rem .75rem;
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+            border-radius: .9rem;
+            
 
-form#search>div>span {
-    position: absolute;
-    top: 10px;
-    right: 5px;
-    display: block;
-    color: white;
-    opacity: 0;
-    transition: opacity .5s .25s ease;
-}
+            &:placeholder-shown {
+                font-style: italic;
+            }
+            &:focus {
+                width: 35vw;
+                outline: none;
+                background-color: var(--bgSearchBar);
 
-form#search>div>input {
-    width: 20vw;
-    transition: width .5s .25s ease, background-color .5s .25s ease;
-}
-
-form#search>div>input:placeholder-shown {
-    font-style: italic;
-}
-
-form#search>div>input:focus {
-    width: 32vw;
-}
-
-form#search>div>input:focus+label {
-    opacity: 0;
-}
-
-form#search>div>input:focus+label+span {
-    opacity: .7;
+                &+label {
+                    opacity: 0;
+                }
+                &+label+span {
+                    opacity: .7;
+                }
+            }
+        }
+        >label {
+            position: absolute;
+            top: .4rem;
+            left: 10px;
+            display: block;
+            color: white;
+            opacity: .5;
+            font-style: italic;
+            font-size: .8rem;
+            transition: opacity .5s .25s ease;
+            cursor: text;
+        }
+        >span {
+            position: absolute;
+            top: .4rem;
+            right: 5px;
+            display: block;
+            color: white;
+            opacity: 0;
+            transition: opacity .5s .25s ease;
+        }
+    }
 }
