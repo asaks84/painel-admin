@@ -11,9 +11,9 @@
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 </head>
 
-<body>
-    <div id="wrapper">
-        <!-- Full container grid -->
+<body class=" bg-bgMain">
+    <div id="wrapper"> <!-- Full container grid -->
+        
         <header class="bg-bgHeader col-start-1 col-end-3 flex py-0.5">
             <div class="brand w-52 ml-3 flex">
                 <img src="./images/logo-cp-admin.png" alt="" class="">
@@ -22,7 +22,7 @@
                 <form id="search" action="#" method="get" class=" leading-none">
                     <div class=" align-top">
                         <input id="searchbar" type="text" placeholder=" "
-                            class="text-xs focus:outline-none bg-bgSearchBar/[.0] focus:bg-bgSearchBar/50 text-white p-1.5 pl-5 my-0.5 rounded-xl">
+                            class="text-xs focus:outline-none bg-bgSearchBar/[.0] focus:bg-bgSearchBar/50 text-white p-1.5  pl-3 pr-6 my-0.5 rounded-xl">
                         <label for="searchbar">Search...</label>
                         <span class="mdi mdi-magnify"></span>
                     </div>
@@ -40,17 +40,28 @@
             </ul>
         </nav>
 
-        <main class=" bg-bgHeader col-start-2 col-end-3">
-            <!-- main content start -->
-            <ul> Firts Menu
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-        </main>
-        </section>
-        <footer>
+        <section id="content" class="col-start-2 col-end-3 flex flex-col relative"> 
 
+            <section class="highlight bg-bgHeader text-white p-2 pl-5 relative flex flex-col"> <!-- highlight content -->
+                <h2 class=" text-lg my-1">Dashboard</h2>
+                <h3 class="text-xs">${name}, bem vindo.</h3>
+                <p class="text-xs my-2">
+                    Mensagem de lembrete<br>
+                    Mensagem de lembrete
+                </p>
+            </section>
+            
+            <main class="col-start-2 col-end-3 grid grid-cols-2 gap-3 mx-4 bg-white"> <!-- main page content -->
+                <div class="card col-span-2 bg-cardYellow"></div>
+                <div class="card bg-cardBlue"></div>
+                <div class="card bg-cardRed"></div>
+                <div class="card "></div>
+                <div class="card bg-cardGreen"></div>
+            </main>
+        </section>
+
+        <footer>
+            <h3>FODA!</h3>
         </footer>
     </div>
 </body>

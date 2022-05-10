@@ -24,10 +24,6 @@ body {
 
 }
 
-* {
-    box-sizing: border-box;
-}
-
 /* SITE STRUCTURE */
 
 /* LOGIN STRUCTURE */
@@ -75,23 +71,52 @@ div#imglogo img {
     height: auto;
 }
 
-/* MAIN STRUCTURE */
+/* LAYOUT STRUCTURE */
 
-.brand img{
+.brand img {
     display: block;
     max-width: 177px;
     max-height: 35px;
     width: auto;
     height: auto;
 }
+
 #wrapper {
     display: grid;
     grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content 1fr;
+    min-height: 100%;
 }
 
-header > div{
+header>div {
     height: 2.2rem;
     align-items: center;
+}
+
+section.highlight {
+    height: 10rem;
+}
+
+section.highlight>* {
+    display: block;
+}
+
+#content {
+    max-width: 100%;
+}
+
+main {
+    margin-top: -3rem;
+    border-radius: 15px;
+    z-index: 1;
+    padding: 20px;
+    box-shadow: 0px 2px 11px 2px rgba(0, 0, 0, 0.2);
+}
+
+main>.card {
+    width: 100%;
+    height: 12rem;
+    border-radius: 15px;
 }
 
 /* FORMS SETTINGS */
@@ -131,7 +156,7 @@ form#loginForm>div>input:not(:placeholder-shown):not([type="submit"]) {
 }
 
 form#loginForm>div>input:focus+label,
-form#loginForm>div>input:not(:placeholder-shown)+label{
+form#loginForm>div>input:not(:placeholder-shown)+label {
     font-size: .5rem;
     top: 5px;
     left: 5px;
@@ -161,13 +186,13 @@ form#loginForm>div>input[type="submit"]:active {
     top: 1px;
 }
 
-form#loginForm>div>input[type="submit"]{
+form#loginForm>div>input[type="submit"] {
     margin-top: 0;
 }
 
 /* SEARCH FORM */
 
-form#search>div{
+form#search>div {
     position: relative;
 }
 
@@ -181,18 +206,20 @@ form#search>div>label {
     font-style: italic;
     font-size: .8rem;
     transition: opacity .5s .25s ease;
+    cursor: text;
 }
+
 form#search>div>span {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 5px;
     display: block;
     color: white;
     opacity: 0;
     transition: opacity .5s .25s ease;
 }
 
-form#search>div>input{
+form#search>div>input {
     width: 20vw;
     transition: width .5s .25s ease, background-color .5s .25s ease;
 }
@@ -201,12 +228,14 @@ form#search>div>input:placeholder-shown {
     font-style: italic;
 }
 
-form#search>div>input:focus{
+form#search>div>input:focus {
     width: 32vw;
 }
+
 form#search>div>input:focus+label {
     opacity: 0;
 }
+
 form#search>div>input:focus+label+span {
     opacity: .7;
 }

@@ -9,7 +9,11 @@ module.exports = {
       headers: '#003459',
       bgMain: '#EBF9FF',
       textColor: '#00171F',
-      white: '#FFF'
+      white: '#FFF',
+      cardGreen: 'rgba(157, 255, 0, 0.774)',
+      cardBlue: 'rgba(0, 174, 255, 0.774)',
+      cardRed: 'rgba(255, 42, 42, 0.774)',
+      cardYellow: 'rgba(255, 251, 0, 0.842)'
 
 
     },
