@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/asaks84/painel-admin#readme",
   "dependencies": {
+    "@mdi/font": "^6.6.96",
     "tailwindcss": "^3.0.24"
   }
 }

@@ -580,8 +580,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0px;
 }
 
-.pl-2 {
-  padding-left: 0.5rem;
+.pl-5 {
+  padding-left: 1.25rem;
 }
 
 .align-top {
@@ -699,11 +699,9 @@ form#loginForm {
 }
 
 form#loginForm>div {
+  position: relative;
   border: 1px solid #ccc;
   margin: 2px;
-  position: relative;
-  border-bottom: 2px solid #ccc;
-  /* margin: 2px; */
 }
 
 form#loginForm>div>label {
@@ -787,25 +785,59 @@ form#loginForm>div>input[type="submit"]{
 
 /* SEARCH FORM */
 
-form#search div input{
+form#search>div{
+  position: relative;
+}
+
+form#search>div>label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: block;
+  color: white;
+  opacity: .5;
+  font-style: italic;
+  font-size: .8rem;
+  transition: opacity .5s .25s ease;
+}
+
+form#search>div>span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block;
+  color: white;
+  opacity: 0;
+  transition: opacity .5s .25s ease;
+}
+
+form#search>div>input{
   width: 20vw;
   transition: width .5s .25s ease, background-color .5s .25s ease;
 }
 
-form#search div input:-moz-placeholder-shown {
+form#search>div>input:-moz-placeholder-shown {
   font-style: italic;
 }
 
-form#search div input:-ms-input-placeholder {
+form#search>div>input:-ms-input-placeholder {
   font-style: italic;
 }
 
-form#search div input:placeholder-shown {
+form#search>div>input:placeholder-shown {
   font-style: italic;
 }
 
-form#search div input:focus{
+form#search>div>input:focus{
   width: 32vw;
+}
+
+form#search>div>input:focus+label {
+  opacity: 0;
+}
+
+form#search>div>input:focus+label+span {
+  opacity: .7;
 }
 
 .focus\:bg-bgSearchBar\/50:focus {

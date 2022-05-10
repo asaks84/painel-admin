@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.6.96/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>Dashboard</title>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 </head>
 
 <body>
@@ -20,8 +22,9 @@
                 <div>
                     <form id="search" action="#" method="get" class=" leading-none">
                         <div class=" align-top">
-                            <input type="text" placeholder="Search..."
-                                class="text-xs focus:outline-none bg-bgSearchBar/[.0] focus:bg-bgSearchBar/50 text-white p-1.5 pl-2 my-0.5 rounded-xl">
+                            <input id="searchbar" type="text" placeholder=" " class="text-xs focus:outline-none bg-bgSearchBar/[.0] focus:bg-bgSearchBar/50 text-white p-1.5 pl-5 my-0.5 rounded-xl">
+                            <label for="searchbar">Search...</label>
+                            <span class="mdi mdi-magnify"></span>
                         </div>
                     </form>
                 </div>
