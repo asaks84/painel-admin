@@ -188,18 +188,19 @@ h4 {
   align-items: center;
   width: 100%;
   height: 100%;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  gap: 2rem;
 }
 
-.login header {
-  margin-bottom: auto;
+.login > div {
+  margin-top: auto;
   text-align: center;
 }
-
-.login header h3 {
-  font-family: var(--title-font);
-  color: var(--title-color);
-  font-size: 1rem;
+.login > div > div > * {
+  margin: 0.5rem;
+}
+.login > div > div > h3 {
+  font-size: 0.9rem;
 }
 
 .login main {
@@ -254,7 +255,7 @@ header > div {
 
 nav {
   grid-column: 1/2;
-  width: 12.5rem;
+  width: 14rem;
   background-color: white;
   box-shadow: 0 1rem 1rem -0.75rem rgba(105, 96, 215, 0.18);
 }
@@ -333,8 +334,6 @@ section#highlight div.boxed section.grid:nth-child(2):nth-child(2n) {
   margin-bottom: -0.5rem;
 }
 
-/* FORMS SETTINGS */
-/* LOGIN FORM */
 form#loginForm {
   min-width: 250px;
   position: relative;
@@ -403,7 +402,6 @@ form#loginForm > div > input[type=submit] {
   margin-top: 0;
 }
 
-/* SEARCH FORM */
 form#search > div {
   position: relative;
   margin-left: 10px;
