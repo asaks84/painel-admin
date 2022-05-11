@@ -1,9 +1,144 @@
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 :root {
-    --font-family: 'Questrial', sans-serif;
-    --font-size: 20px;
-    --title-font: 'Questrial', sans-serif;
+    --font-family: 'Ubuntu', sans-serif;
+    --font-size: 16px;
     --title-color: rgb(58, 58, 58);
     --background-color: white;
     --bgHeader: #003459;
@@ -11,11 +146,11 @@
     --headers: #003459;
     --bgMain: #EBF9FF;
     --textColor: #00171F;
-    --cardGreen: rgba(157, 255, 0, 0.774);
-    --cardBlue: rgba(0, 174, 255, 0.774);
-    --cardRed: rgba(255, 42, 42, 0.774);
-    --cardYellow: rgba(255, 251, 0, 0.842);
-    --headerMargin: .3rem 0;
+    --cardGreen: rgba(157, 255, 0, 1);
+    --cardBlue: rgba(0, 174, 255, 1);
+    --cardRed: rgba(255, 42, 42, 1);
+    --cardYellow: rgba(255, 251, 0, 1);
+    --headerMargin: .5rem 0;
 }
 
 html,
@@ -27,17 +162,28 @@ body {
     height: 100%;
     min-height: 100%;
     background-color: var(--background-color);
+    line-height: 1.3;
+    letter-spacing: -.065rem;
 
 }
-*{
+
+* {
     box-sizing: border-box;
 }
 
-// common classes classes
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.7;
+}
+
+// common classes
 
 .flex {
     display: flex
 }
+
 .grid {
     display: grid;
 }
@@ -52,27 +198,33 @@ body {
     height: 100%;
     justify-content: space-around;
 }
+
 .login header {
     margin-bottom: auto;
     text-align: center;
 }
+
 .login header h3 {
     font-family: var(--title-font);
     color: var(--title-color);
     font-size: 1rem;
 }
+
 .login main {
     flex-direction: row;
     gap: 30px;
 }
+
 .login footer {
     margin-top: auto;
     text-align: center;
     font-size: .7rem;
 }
+
 div#imglogo {
     align-items: center;
 }
+
 div#imglogo img {
     display: block;
     max-width: 180px;
@@ -98,9 +250,11 @@ div#imglogo img {
     background-color: var(--bgMain);
 }
 
+
 // HEADER
 
-header{
+
+header {
     grid-area: 1 / 1 / 1 / 3;
     background: var(--bgHeader);
 }
@@ -113,8 +267,8 @@ header>div {
 }
 
 
-
 // NAV
+
 
 nav {
     grid-column: 1 / 2;
@@ -122,34 +276,89 @@ nav {
     box-shadow: 0px 2px 11px 2px rgba(0, 0, 0, 0.07);
 }
 
-section#highlight>section {
-    height: 13rem;
-}
 
-section#highlight>div>p {
-    color: lightgray;
-}
+// HIGHLIGHT
 
-section#highlight>section {
-    border-radius: 15px;
-    z-index: 1;
-    padding: 20px;
-    box-shadow: 0px 2px 11px 2px rgba(0, 0, 0, 0.07);
-}
 
-section#highlight>section:nth-child(2) {
-    margin-top: -5rem;
+section#highlight {
+    flex-direction: column;
+
+    &>section {
+        height: 15rem;
+        background-color: var(--bgHeader);
+        color: white;
+        padding: 0.9rem;
+
+        & div {
+            
+            & h2 {
+                font-size: 2.0rem;
+                margin: 0;
+            }
+
+            & h3 {
+                font-size: 1rem;
+            }
+
+            &>p {
+                color: rgb(180, 180, 180);
+            }
+        }
+    }
+
+    & div.boxed {
+        grid-template-columns: 1fr .75fr;
+        margin: {
+            top: -4rem;
+            left: 1rem;
+            right: 1rem;
+        };
+        
+        gap: 1rem;
+        
+
+        &>section.highlightBoxed {
+            border-radius: 15px;
+            z-index: 1;
+            padding: 1rem;
+            background-color: white;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: min-content 1fr;
+            gap: 1rem
+        }
+        & > section:nth-child(2){
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: min-content 1fr;
+            gap: 1rem
+        }
+    }
 }
 
 .card {
     width: auto;
     height: 12rem;
     border-radius: 15px;
+    background-color: #ccc;
 }
+.col-span2{
+    grid-column: span 2;
+}
+.bg-cardBlue{
+    background-color: var(--cardBlue);
+}
+.bg-cardGreen{
+    background-color: var(--cardGreen);
+}
+.bg-cardYellow{
+    background-color: var(--cardYellow);
+}
+
 
 /* FORMS SETTINGS */
 
+
 /* LOGIN FORM */
+
 form#loginForm {
     min-width: 250px;
     position: relative;
@@ -220,9 +429,10 @@ form#loginForm>div>input[type="submit"] {
 
 /* SEARCH FORM */
 
-form#search{
+form#search {
     >div {
         position: relative;
+        margin-left: 10px;
 
         >input {
             width: 20vw;
@@ -232,11 +442,12 @@ form#search{
             background-color: rgba(0, 0, 0, 0);
             color: white;
             border-radius: .9rem;
-            
+
 
             &:placeholder-shown {
                 font-style: italic;
             }
+
             &:focus {
                 width: 35vw;
                 outline: none;
@@ -245,11 +456,13 @@ form#search{
                 &+label {
                     opacity: 0;
                 }
+
                 &+label+span {
                     opacity: .7;
                 }
             }
         }
+
         >label {
             position: absolute;
             top: .4rem;
@@ -258,10 +471,11 @@ form#search{
             color: white;
             opacity: .5;
             font-style: italic;
-            font-size: .8rem;
+            font-size: 1rem;
             transition: opacity .5s .25s ease;
             cursor: text;
         }
+
         >span {
             position: absolute;
             top: .4rem;

@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <div id="wrapper" class="bg-bgMain"> <!-- Full container grid -->
-        
+    <div id="wrapper" class="bg-bgMain">
+        <!-- Full container grid -->
+
         <header class="flex">
             <div class="brand flex">
                 <img src="./images/logo-cp-admin.png" alt="" class="">
@@ -21,7 +22,7 @@
             <div class="flex">
                 <form id="search" action="#" method="get" class=" leading-none">
                     <div class=" align-top">
-                        <input id="searchbar" type="text" placeholder=" "
+                        <input id="searchbar" type="search" placeholder=" "
                             class="text-xs focus:outline-none bg-bgSearchBar/[.0] focus:bg-bgSearchBar/50 text-white p-1.5  pl-3 pr-6 my-0.5 rounded-xl">
                         <label for="searchbar">Search...</label>
                         <span class="mdi mdi-magnify"></span>
@@ -40,27 +41,37 @@
             </ul>
         </nav>
 
-        <section id="highlight" class="">  <!-- highlight content -->
+        <section id="highlight" class="flex"> <!-- highlight content -->
+
+            <section> <!-- hightlight header -->
+               
+                <div>
+                    <h2>Dashboard</h2>
+                    <h3>${name}, bem vindo.</h3>
+                    <p>
+                        Mensagem de lembrete<br>
+                        Mensagem de lembrete
+                    </p>
+                </div>
+
+            </section>
+
+            <div class="boxed grid">
+                <section class="highlightBoxed grid">
+                    <!-- section highlight content -->
+                    <div class="card col-span2 bg-cardYellow"></div>
+                    <div class="card bg-cardBlue"></div>
+                    <div class="card bg-cardRed"></div>
+                </section>
+                <section class="grid">
+                    <!-- section page content -->
+                    <div class="card bg-cardBlue"></div>
+                    <div class="card bg-cardRed"></div>
+                    <div class="card "></div>
+                    <div class="card bg-cardGreen"></div>
+                </section>
+            </div>
             
-            <section class="">  <!-- hightlight header -->
-                <h2 class=" text-2xl my-1.5">Dashboard</h2>
-                <h3 class="text-xs">${name}, bem vindo.</h3>
-                <p class="text-xs my-2">
-                    Mensagem de lembrete<br>
-                    Mensagem de lembrete
-                </p>
-            </section>
-            <section class="highlightBoxed grid grid-cols-2 gap-4 mx-4 bg-white"> <!-- section highlight content -->
-                <div class="card col-span-2 bg-cardYellow"></div>
-                <div class="card bg-cardBlue"></div>
-                <div class="card bg-cardRed"></div>
-            </section>
-            <section class="grid grid-cols-2 gap-4 mx-4 bg-white"> <!-- section page content -->
-                <div class="card bg-cardBlue"></div>
-                <div class="card bg-cardRed"></div>
-                <div class="card "></div>
-                <div class="card bg-cardGreen"></div>
-            </section>
         </section>
 
         <footer>
