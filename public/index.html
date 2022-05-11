@@ -41,43 +41,51 @@
             </ul>
         </nav>
 
-        <section id="highlight" class="flex"> <!-- highlight content -->
+        <main>
+            <section id="highlight" class="flex">
+                <!-- highlight content -->
 
-            <section> <!-- hightlight header -->
-               
-                <div>
-                    <h2>Dashboard</h2>
-                    <h3>${name}, bem vindo.</h3>
-                    <p>
-                        Mensagem de lembrete<br>
-                        Mensagem de lembrete
-                    </p>
+                <section>
+                    <!-- hightlight header -->
+
+                    <div>
+                        <h2>Dashboard</h2>
+                        <h3>${name}, bem vindo.</h3>
+                        <p>
+                            Mensagem de lembrete<br>
+                            Mensagem de lembrete
+                        </p>
+                    </div>
+
+                </section>
+
+                <div class="boxed grid">
+                    <section class="highlightBoxed grid">
+                        <!-- section highlight content -->
+                        <div class="mincard col-span2 bg-cardYellow"></div>
+                        <div class="mincard bg-cardBlue"></div>
+                        <div class="mincard bg-cardRed"></div>
+                        <div class="mincard col-span2 bg-cardRed"></div>
+                    </section>
+                    <section class="grid">
+                        <!-- section page content -->
+                        <div class="mincard bg-cardBlue"></div>
+                        <div class="mincard bg-cardRed"></div>
+                        <div class="mincard"></div>
+                        <div class="mincard bg-cardGreen"></div>
+                        <div class="mincard col-span2 lastcard"></div>
+                    </section>
                 </div>
 
             </section>
-
-            <div class="boxed grid">
-                <section class="highlightBoxed grid">
-                    <!-- section highlight content -->
-                    <div class="card col-span2 bg-cardYellow"></div>
-                    <div class="card bg-cardBlue"></div>
-                    <div class="card bg-cardRed"></div>
-                    <div class="card col-span2 bg-cardRed"></div>
-                </section>
-                <section class="grid">
-                    <!-- section page content -->
-                    <div class="card bg-cardBlue"></div>
-                    <div class="card bg-cardRed"></div>
-                    <div class="card"></div>
-                    <div class="card bg-cardGreen"></div>
-                    <div class="card col-span2 lastcard"></div>
-                </section>
-            </div>
-            
-        </section>
-
-        <footer>
-            <h3>FODA!</h3>
+            <section class="grid">
+                <div class="mincard col-span2 bg-cardYellow"></div>
+                <div class="mincard col-span2 bg-cardYellow"></div>
+                <div class="mincard col-span2 bg-cardYellow"></div>
+            </section>
+        </main>
+        <footer class="flex">
+            <p>developed by: <a href="http://theac.com.br" target="_blank">theac team</a></p>
         </footer>
     </div>
 </body>

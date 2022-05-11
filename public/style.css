@@ -1,139 +1,5 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+@import url("./reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 :root {
   --font-family: "Ubuntu", sans-serif;
   --font-size: 16px;
@@ -149,6 +15,7 @@ table {
   --cardRed: rgba(255, 42, 42, 1);
   --cardYellow: rgba(255, 251, 0, 1);
   --headerMargin: .5rem 0;
+  --box-shadow: 0 1rem 1rem -0.75rem rgb(105 96 215 / 18%);
 }
 
 html,
@@ -253,11 +120,27 @@ header > div {
   margin: var(--headerMargin);
 }
 
+footer {
+  background-color: white;
+  width: 100%;
+  grid-column: span 2;
+  justify-content: center;
+  z-index: 0;
+}
+
 nav {
   grid-column: 1/2;
   width: 14rem;
   background-color: white;
-  box-shadow: 0 1rem 1rem -0.75rem rgba(105, 96, 215, 0.18);
+  box-shadow: var(--box-shadow);
+}
+
+main > section:not(#highlight) {
+  box-shadow: var(--box-shadow);
+  margin: 1.5rem 0 0 0;
+  z-index: 1;
+  background-color: white;
+  padding: 1rem;
 }
 
 section#highlight {
@@ -281,10 +164,14 @@ section#highlight > section div > p {
 }
 section#highlight div.boxed {
   grid-template-columns: 1fr 0.75fr;
+  z-index: 1;
   margin-top: -4rem;
   margin-left: 1rem;
   margin-right: 1rem;
   gap: 0.5rem;
+}
+section#highlight div.boxed > section {
+  box-shadow: var(--box-shadow);
 }
 section#highlight div.boxed section.grid {
   grid-template-columns: repeat(2, 1fr);
@@ -293,19 +180,19 @@ section#highlight div.boxed section.grid {
   padding: 0.7rem;
 }
 section#highlight div.boxed > section.highlightBoxed {
-  border-radius: 15px;
-  z-index: 1;
+  border-radius: 0.4rem;
   background-color: white;
-  box-shadow: 0 1rem 1rem -0.75rem rgba(105, 96, 215, 0.18);
 }
-section#highlight div.boxed section.grid:nth-child(2):nth-child(2n) {
+section#highlight div.boxed section.grid:nth-child(2) {
   margin-top: -0.5rem;
 }
+section#highlight div.boxed section.grid:nth-child(2) > :not(:nth-child(1n+5)) {
+  border-radius: 0.4rem;
+}
 
-.card {
+.mincard {
   width: auto;
   min-height: 10rem;
-  border-radius: 10px;
   background-color: white;
 }
 
@@ -330,8 +217,7 @@ section#highlight div.boxed section.grid:nth-child(2):nth-child(2n) {
 }
 
 .lastcard {
-  box-shadow: 0 1rem 1rem -0.75rem rgba(105, 96, 215, 0.18);
-  margin-bottom: -0.5rem;
+  margin-bottom: -0.7rem;
 }
 
 form#loginForm {
