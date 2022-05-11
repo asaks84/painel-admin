@@ -338,42 +338,43 @@ form#loginForm {
   min-width: 250px;
   position: relative;
 }
-
 form#loginForm > div {
   position: relative;
   border: 1px solid #ccc;
   margin: 2px;
 }
-
 form#loginForm > div > label {
   opacity: 0.5;
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   transition: all 100ms linear;
 }
-
 form#loginForm > div > input {
   width: 100%;
   border: 0;
   padding: 20px 20px 20px 20px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
-
-form#loginForm > div > input:focus,
+form#loginForm > div > input:focus {
+  outline: 0;
+  padding: 25px 20px 15px 20px;
+}
 form#loginForm > div > input:not(:placeholder-shown):not([type=submit]) {
   outline: 0;
   padding: 25px 20px 15px 20px;
 }
-
-form#loginForm > div > input:focus + label,
-form#loginForm > div > input:not(:placeholder-shown) + label {
-  font-size: 0.5rem;
+form#loginForm > div > input:focus + label {
+  font-size: 0.75rem;
   top: 5px;
   left: 5px;
 }
-
+form#loginForm > div > input:not(:placeholder-shown) + label {
+  font-size: 0.75rem;
+  top: 5px;
+  left: 5px;
+}
 form#loginForm > div > input[type=submit] {
   box-shadow: inset 0px 1px 0px 0px #54a3f7;
   background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
@@ -385,21 +386,16 @@ form#loginForm > div > input[type=submit] {
   text-shadow: 0px 1px 0px #154682;
   color: white;
   margin-top: 10px;
+  margin-top: 0;
 }
-
 form#loginForm > div > input[type=submit]:hover {
   background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
   background-color: #0061a7;
   cursor: pointer;
 }
-
 form#loginForm > div > input[type=submit]:active {
   position: relative;
   top: 1px;
-}
-
-form#loginForm > div > input[type=submit] {
-  margin-top: 0;
 }
 
 form#search > div {

@@ -191,6 +191,7 @@ h4 {
 // SITE STRUCTURE 
 
 // LOGIN STRUCTURE 
+
 #container {
     flex-direction: column;
     align-items: center;
@@ -204,11 +205,12 @@ h4 {
     margin-top: auto;
     text-align: center;
 
-    &>div{
-        & >*{
+    &>div {
+        &>* {
             margin: .5rem;
         }
-        & > h3{
+
+        &>h3 {
             font-size: .9rem;
         }
 
@@ -296,7 +298,7 @@ section#highlight {
         padding: 1rem;
 
         & div {
-            
+
             & h2 {
                 font-size: 2.0rem;
                 margin: 0;
@@ -314,35 +316,40 @@ section#highlight {
 
     & div.boxed {
         grid-template-columns: 1fr .75fr;
+
         margin: {
             top: -4rem;
             left: 1rem;
             right: 1rem;
-        };
+        }
+
+        ;
         gap: .5rem;
-        
-        
-        & section.grid{
+
+
+        & section.grid {
             grid-template-columns: repeat(2, 1fr);
             grid-auto-rows: min-content 1fr;
             gap: .7rem;
             padding: .7rem;
 
-            
+
         }
+
         &>section.highlightBoxed {
             border-radius: 15px;
             z-index: 1;
             background-color: white;
             box-shadow: 0 1rem 1rem -0.75rem rgb(105 96 215 / 18%);
-           
+
         }
-        & section.grid:nth-child(2){
-            &:nth-child(2n){
+
+        & section.grid:nth-child(2) {
+            &:nth-child(2n) {
                 margin-top: -.5rem;
             }
         }
-        
+
     }
 }
 
@@ -352,23 +359,28 @@ section#highlight {
     border-radius: 10px;
     background-color: white;
 }
-.col-span2{
+
+.col-span2 {
     grid-column: span 2;
 }
-.bg-cardBlue{
+
+.bg-cardBlue {
     background-color: var(--cardBlue);
 }
-.bg-cardGreen{
+
+.bg-cardGreen {
     background-color: var(--cardGreen);
 }
-.bg-cardYellow{
+
+.bg-cardYellow {
     background-color: var(--cardYellow);
 }
-.bg-cardRed{
+
+.bg-cardRed {
     background-color: var(--cardRed);
 }
 
-.lastcard{
+.lastcard {
     box-shadow: 0 1rem 1rem -0.75rem rgb(105 96 215 / 18%);
     margin-bottom: -.5rem;
 }
@@ -381,70 +393,79 @@ section#highlight {
 form#loginForm {
     min-width: 250px;
     position: relative;
+
+    >div {
+        position: relative;
+        border: 1px solid #ccc;
+        margin: 2px;
+
+        >label {
+            opacity: 0.5;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1rem;
+            transition: all 100ms linear;
+        }
+
+        >input {
+            width: 100%;
+            border: 0;
+            padding: 20px 20px 20px 20px;
+            font-size: 1rem;
+
+            &:focus {
+                outline: 0;
+                padding: 25px 20px 15px 20px;
+            }
+
+            &:not(:placeholder-shown) {
+                &:not([type="submit"]) {
+                    outline: 0;
+                    padding: 25px 20px 15px 20px;
+                }
+            }
+
+            &:focus+label {
+                font-size: .75rem;
+                top: 5px;
+                left: 5px;
+            }
+
+            &:not(:placeholder-shown)+label {
+                font-size: .75rem;
+                top: 5px;
+                left: 5px;
+            }
+        }
+
+        >input[type="submit"] {
+            box-shadow: inset 0px 1px 0px 0px #54a3f7;
+            background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+            background-color: #007dc1;
+            border-radius: 3px;
+            border: 1px solid #124d77;
+            display: inline-block;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #154682;
+            color: white;
+            margin-top: 10px;
+            margin-top: 0;
+
+            &:hover {
+                background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+                background-color: #0061a7;
+                cursor: pointer;
+            }
+
+            &:active {
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
 }
 
-form#loginForm>div {
-    position: relative;
-    border: 1px solid #ccc;
-    margin: 2px;
-}
-
-form#loginForm>div>label {
-    opacity: 0.5;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: .8rem;
-    transition: all 100ms linear;
-}
-
-form#loginForm>div>input {
-    width: 100%;
-    border: 0;
-    padding: 20px 20px 20px 20px;
-    font-size: .8rem;
-}
-
-form#loginForm>div>input:focus,
-form#loginForm>div>input:not(:placeholder-shown):not([type="submit"]) {
-    outline: 0;
-    padding: 25px 20px 15px 20px;
-}
-
-form#loginForm>div>input:focus+label,
-form#loginForm>div>input:not(:placeholder-shown)+label {
-    font-size: .5rem;
-    top: 5px;
-    left: 5px;
-}
-
-form#loginForm>div>input[type="submit"] {
-    box-shadow: inset 0px 1px 0px 0px #54a3f7;
-    background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
-    background-color: #007dc1;
-    border-radius: 3px;
-    border: 1px solid #124d77;
-    display: inline-block;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #154682;
-    color: white;
-    margin-top: 10px;
-}
-
-form#loginForm>div>input[type="submit"]:hover {
-    background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
-    background-color: #0061a7;
-    cursor: pointer;
-}
-
-form#loginForm>div>input[type="submit"]:active {
-    position: relative;
-    top: 1px;
-}
-
-form#loginForm>div>input[type="submit"] {
-    margin-top: 0;
-}
 
 // SEARCH FORM 
 
@@ -461,7 +482,7 @@ form#search {
             background-color: rgba(0, 0, 0, 0);
             color: white;
             border-radius: .9rem;
-            
+
             &:placeholder-shown {
                 font-style: italic;
             }
