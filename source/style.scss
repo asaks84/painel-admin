@@ -44,7 +44,7 @@ h4 {
     line-height: 1.7;
 }
 
-// common classes
+// USEFUL CLASSES
 
 .flex {
     display: flex
@@ -54,9 +54,61 @@ h4 {
     display: grid;
 }
 
-// SITE STRUCTURE 
+
+// CARDS
+
+
+.cards {
+    box-shadow: var(--box-shadow);
+    background-color: white;
+    border-radius: .4rem;
+    padding: .7rem;
+}
+
+.mincard {
+    width: auto;
+    min-height: 10rem;
+    background-color: white;
+}
+
+.col-span2 {
+    grid-column: span 2;
+}
+
+.bg-cardBlue {
+    background-color: var(--cardBlue);
+}
+
+.bg-cardGreen {
+    background-color: var(--cardGreen);
+}
+
+.bg-cardYellow {
+    background-color: var(--cardYellow);
+}
+
+.bg-cardRed {
+    background-color: var(--cardRed);
+}
+
+
+// CONTENT SPACING
+
+
+$element-mb: 1.25rem;
+.el-spc {
+    margin: {
+        left: .5rem;
+        right: .5rem;
+        bottom: $element-mb;
+    }
+    
+}
+
 
 // LOGIN STRUCTURE 
+
+
 
 #container {
     flex-direction: column;
@@ -90,8 +142,6 @@ h4 {
 
 .login footer {
     margin-top: auto;
-    text-align: center;
-    font-size: .7rem;
 }
 
 div#imglogo {
@@ -106,7 +156,9 @@ div#imglogo img {
     height: auto;
 }
 
-// LAYOUT STRUCTURE 
+
+// DASHBOARD STRUCTURE 
+
 
 .brand img {
     display: block;
@@ -124,7 +176,7 @@ div#imglogo img {
 }
 
 
-// HEADER
+// HEADER & FOOTER
 
 
 header {
@@ -138,13 +190,17 @@ header>div {
     align-items: center;
     margin: var(--headerMargin);
 }
-footer{
-    background-color: white;
+
+footer {
+  //  background-color: white;
     width: 100%;
     grid-column: span 2;
     justify-content: center;
-    z-index: 0;
+    text-align: center;
+    font-size: .7rem;
+    padding: 5px;
 }
+
 
 // NAV
 
@@ -159,33 +215,37 @@ nav {
 
 // MAIN CONTENT
 
-main{
-    & > section:not(#highlight){
-        box-shadow: var(--box-shadow);
-        margin: 1.5rem 0 0 0;
-        z-index: 1;
-        background-color: white;
-        padding: 1rem;
+
+main {
+    &>section:not(#home-content-header) {
+        gap: .5rem;
     }
 }
 
-// HIGHLIGHT
+// MAIN HEADER
 
+$highlight-spacing: 1rem;
 
-section#highlight {
+section#home-content-header {
     flex-direction: column;
+    margin-bottom: $element-mb;
 
     &>section {
-        height: 15rem;
         background-color: var(--bgHeader);
         color: white;
-        padding: 1rem;
+        padding: $highlight-spacing;
+
+        &.homescreen:after {
+            content: "";
+            display: block;
+            height: 5rem;
+            width: 100%
+        }
 
         & div {
 
             & h2 {
                 font-size: 2.0rem;
-                margin: 0;
             }
 
             & h3 {
@@ -201,75 +261,40 @@ section#highlight {
     & div.boxed {
         grid-template-columns: 1fr .75fr;
         z-index: 1;
-        margin: {
-            top: -4rem;
-            left: 1rem;
-            right: 1rem;
-        }
+        margin: 0 $highlight-spacing;
+        gap: 1rem;
+        margin-top: -4rem;
         
-        gap: .5rem;
 
-        & > section{
-              box-shadow: var(--box-shadow);
+        &>section {
+            box-shadow: var(--box-shadow);
         }
+
+        &>.cards {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
         & section.grid {
             grid-template-columns: repeat(2, 1fr);
             grid-auto-rows: min-content 1fr;
             gap: .7rem;
-            padding: .7rem;
-        }
-
-        &>section.highlightBoxed {
-            border-radius: .4rem;
-            
-            background-color: white;
-            
         }
 
         & section.grid:nth-child(2) {
-            margin-top: -.5rem;
            
             &>:not(:nth-child(1n+5)) {
-                border-radius: .4rem;
+                border-radius: .5rem;
             }
         }
 
     }
 }
 
-.mincard {
-    width: auto;
-    min-height: 10rem;
-    background-color: white;
-}
-.col-span2 {
-    grid-column: span 2;
-}
-
-.bg-cardBlue {
-    background-color: var(--cardBlue);
-}
-
-.bg-cardGreen {
-    background-color: var(--cardGreen);
-}
-
-.bg-cardYellow {
-    background-color: var(--cardYellow);
-}
-
-.bg-cardRed {
-    background-color: var(--cardRed);
-}
-
-.lastcard {
-    margin-bottom: -.7rem;
-}
 
 // FORMS SETTINGS 
-
-
 // LOGIN FORM
+
 
 form#loginForm {
     min-width: 250px;
@@ -349,6 +374,7 @@ form#loginForm {
 
 
 // SEARCH FORM 
+
 
 form#search {
     >div {
