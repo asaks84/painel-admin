@@ -44,7 +44,12 @@ h4 {
     line-height: 1.7;
 }
 
+p{
+    font-size: .9rem;
+}
+
 // USEFUL CLASSES
+
 
 .flex {
     display: flex
@@ -95,7 +100,7 @@ h4 {
 // CONTENT SPACING
 
 
-$element-mb: 1.25rem;
+$element-mb: 2rem;
 .el-spc {
     margin: {
         left: .5rem;
@@ -202,10 +207,10 @@ footer {
 }
 
 
-// NAV
+// ASIDE
 
 
-nav {
+aside {
     grid-column: 1 / 2;
     width: 14rem;
     background-color: white;
@@ -241,11 +246,14 @@ section#home-content-header {
             height: 5rem;
             width: 100%
         }
+        &.homescreen+div.boxed {
+            margin-top: -4rem;
+        }
 
         & div {
 
             & h2 {
-                font-size: 2.0rem;
+                font-size: 2.2rem;
             }
 
             & h3 {
@@ -263,7 +271,6 @@ section#home-content-header {
         z-index: 1;
         margin: 0 $highlight-spacing;
         gap: 1rem;
-        margin-top: -4rem;
         
 
         &>section {

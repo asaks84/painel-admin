@@ -42,6 +42,10 @@ h4 {
   line-height: 1.7;
 }
 
+p {
+  font-size: 0.9rem;
+}
+
 .flex {
   display: flex;
 }
@@ -86,7 +90,7 @@ h4 {
 .el-spc {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
 }
 
 #container {
@@ -166,7 +170,7 @@ footer {
   padding: 5px;
 }
 
-nav {
+aside {
   grid-column: 1/2;
   width: 14rem;
   background-color: white;
@@ -179,7 +183,7 @@ main > section:not(#home-content-header) {
 
 section#home-content-header {
   flex-direction: column;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
 }
 section#home-content-header > section {
   background-color: var(--bgHeader);
@@ -192,8 +196,11 @@ section#home-content-header > section.homescreen:after {
   height: 5rem;
   width: 100%;
 }
+section#home-content-header > section.homescreen + div.boxed {
+  margin-top: -4rem;
+}
 section#home-content-header > section div h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 section#home-content-header > section div h3 {
   font-size: 1rem;
@@ -206,7 +213,6 @@ section#home-content-header div.boxed {
   z-index: 1;
   margin: 0 1rem;
   gap: 1rem;
-  margin-top: -4rem;
 }
 section#home-content-header div.boxed > section {
   box-shadow: var(--box-shadow);
