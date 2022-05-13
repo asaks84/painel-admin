@@ -1,6 +1,15 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
+// MIXIN MEDIA-QUERYES
+@mixin for-size($size) {
+    @if $size == tablet {
+        @media (max-width: 900px) { @content; }
+    } @else if $size == desktop {
+        @media (min-width: 1200px) { @content; }
+    }
+}
+
 :root {
     --font-family: 'Ubuntu', sans-serif;
     --font-size: 16px;
@@ -17,6 +26,7 @@
     --cardYellow: rgba(255, 251, 0, 1);
     --headerMargin: .5rem 0;
     --box-shadow: 0 1rem 1rem -0.75rem rgb(105 96 215 / 18%);
+    --wrap-first-column: 14rem;
 }
 
 html,
@@ -44,7 +54,7 @@ h4 {
     line-height: 1.7;
 }
 
-p{
+p {
     font-size: .9rem;
 }
 
@@ -101,13 +111,14 @@ p{
 
 
 $element-mb: 2rem;
+
 .el-spc {
     margin: {
         left: .5rem;
         right: .5rem;
         bottom: $element-mb;
     }
-    
+
 }
 
 
@@ -185,7 +196,8 @@ div#imglogo img {
 
 
 header {
-    grid-area: 1 / 1 / 1 / 3;
+    grid-column: span 2;
+    column-span: all;
     background: var(--bgHeader);
 }
 
@@ -197,7 +209,7 @@ header>div {
 }
 
 footer {
-  //  background-color: white;
+    //  background-color: white;
     width: 100%;
     grid-column: span 2;
     justify-content: center;
@@ -211,17 +223,29 @@ footer {
 
 
 aside {
-    grid-column: 1 / 2;
-    width: 14rem;
+    min-width: var(--wrap-first-column);
     background-color: white;
     box-shadow: var(--box-shadow);
+    z-index: 10;
+
+    @include for-size(tablet){
+        position: absolute;
+        min-height: 100%;
+        left: calc(var(--wrap-first-column) * -1);
+    }
 }
 
 
 // MAIN CONTENT
 
+header+div {
+    width: 100%;
+}
+
 
 main {
+    width: inherit;
+
     &>section:not(#home-content-header) {
         gap: .5rem;
     }
@@ -233,7 +257,6 @@ $highlight-spacing: 1rem;
 
 section#home-content-header {
     flex-direction: column;
-    margin-bottom: $element-mb;
 
     &>section {
         background-color: var(--bgHeader);
@@ -246,6 +269,7 @@ section#home-content-header {
             height: 5rem;
             width: 100%
         }
+
         &.homescreen+div.boxed {
             margin-top: -4rem;
         }
@@ -267,19 +291,18 @@ section#home-content-header {
     }
 
     & div.boxed {
-        grid-template-columns: 1fr .75fr;
         z-index: 1;
         margin: 0 $highlight-spacing;
-        gap: 1rem;
-        
+        flex-wrap: wrap;
+
+        @include for-size(desktop){
+            gap: 1rem;
+        }
+
 
         &>section {
             box-shadow: var(--box-shadow);
-        }
-
-        &>.cards {
-            margin-top: 0;
-            margin-bottom: 0;
+            margin-bottom: $element-mb;
         }
 
         & section.grid {
@@ -288,8 +311,21 @@ section#home-content-header {
             gap: .7rem;
         }
 
+        & section.grid:first-child {
+            width: 100%;
+
+            @include for-size(desktop) {
+                width: 55%;
+               
+            }
+
+        }
+
         & section.grid:nth-child(2) {
-           
+            width: 100%;
+            @include for-size(desktop) {
+                width: 43.4%;
+            }
             &>:not(:nth-child(1n+5)) {
                 border-radius: .5rem;
             }
@@ -298,6 +334,7 @@ section#home-content-header {
     }
 }
 
+// MEDIA-QUERY
 
 // FORMS SETTINGS 
 // LOGIN FORM
