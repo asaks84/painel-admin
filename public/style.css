@@ -114,9 +114,8 @@ a:hover {
   gap: 2rem;
 }
 
-.login > div {
+.login > div:first-child {
   margin-top: auto;
-  text-align: center;
 }
 .login > div > div > * {
   margin: 0.5rem;
@@ -125,7 +124,7 @@ a:hover {
   font-size: 0.9rem;
 }
 
-.login main {
+.login div {
   flex-direction: row;
   gap: 30px;
 }
@@ -192,13 +191,14 @@ aside {
 }
 aside > * {
   margin: 1rem 2rem;
+  font-size: 0.87rem;
 }
 aside > * h3 {
   font-weight: bold;
   padding: 0.5rem 0;
 }
 aside > * > ul {
-  padding-left: 0.5rem;
+  padding-left: 2rem;
   margin-left: 0.5rem;
   border-left: 1px dashed gray;
 }
