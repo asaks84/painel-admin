@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 // MIXIN MEDIA-QUERYES
-@mixin for-size($size) {
+@mixin responsive($size) {
     @if $size == phone {
         @media (max-width: 599px) { @content; }
     } @else if $size == tablet {
@@ -41,7 +41,7 @@ body {
     min-height: 100%;
     background-color: var(--background-color);
     line-height: 1.3;
-    letter-spacing: -.065rem;
+    letter-spacing: -.04rem;
 
 }
 
@@ -58,6 +58,18 @@ h4 {
 
 p {
     font-size: .9rem;
+}
+a{
+    text-decoration: none;
+    color:var(--textColor);
+    
+    &:visited{
+        color: var(--textColor);
+    }
+    &:hover{
+        text-decoration: underline;
+    }
+    
 }
 
 // USEFUL CLASSES
@@ -177,6 +189,14 @@ div#imglogo img {
 
 // DASHBOARD STRUCTURE 
 
+#wrapper {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content 1fr;
+    background-color: var(--bgMain);
+    min-height: 100%;
+}
+
 
 .brand img {
     display: block;
@@ -186,12 +206,7 @@ div#imglogo img {
     height: auto;
 }
 
-#wrapper {
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    grid-template-rows: min-content 1fr;
-    background-color: var(--bgMain);
-}
+
 
 
 // HEADER & FOOTER
@@ -229,14 +244,64 @@ aside {
     background-color: white;
     box-shadow: var(--box-shadow);
     z-index: 10;
+    
+    &>*{
+        margin: 1rem 2rem;
+        & h3{
+            font-weight: bold;
+            padding: .5rem 0;
+        }
+        &>ul {
+            padding-left: .5rem;
+            margin-left: .5rem;
+            border-left: 1px dashed gray;
+            & li{
+                line-height: 2rem;
+                display: block;
+            }
+        }
+    }
 
-    @include for-size(tablet){
+
+    @include responsive(tablet){
         position: absolute;
         min-height: 100%;
         left: calc(var(--wrap-first-column) * -1);
+        
     }
 }
 
+
+// NAV
+
+
+nav {
+
+    // settings
+    
+    &>a {
+        display: block;
+        line-height: 2rem;
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: n;
+        }
+        & > i{
+            font-size: 1.2rem;
+        }
+        & > span{
+            margin-left: .5rem;
+        }
+    }
+    & >.colapsed{
+        display: none;
+    }
+    &>.colapsed.show {
+        display: block;
+    }
+
+}
 
 // MAIN CONTENT
 
@@ -297,7 +362,7 @@ section#home-content-header {
         margin: 0 $highlight-spacing;
         flex-wrap: wrap;
 
-        @include for-size(desktop){
+        @include responsive(desktop){
             gap: 1rem;
         }
 
@@ -312,7 +377,7 @@ section#home-content-header {
             grid-auto-rows: min-content 1fr;
             gap: .7rem;
 
-            @include for-size(phone){
+            @include responsive(phone){
                 grid-template-columns: 1fr;
                 &>.col-span2{
                     grid-column: span 1;
@@ -323,7 +388,7 @@ section#home-content-header {
         & section.grid:first-child {
             width: 100%;
 
-            @include for-size(desktop) {
+            @include responsive(desktop) {
                 width: 55%;
                
             }
@@ -332,7 +397,7 @@ section#home-content-header {
 
         & section.grid:nth-child(2) {
             width: 100%;
-            @include for-size(desktop) {
+            @include responsive(desktop) {
                 width: 43.4%;
             }
             &>:not(:nth-child(1n+5)) {
@@ -343,7 +408,6 @@ section#home-content-header {
     }
 }
 
-// MEDIA-QUERY
 
 // FORMS SETTINGS 
 // LOGIN FORM
