@@ -3,7 +3,9 @@
 
 // MIXIN MEDIA-QUERYES
 @mixin for-size($size) {
-    @if $size == tablet {
+    @if $size == phone {
+        @media (max-width: 599px) { @content; }
+    } @else if $size == tablet {
         @media (max-width: 900px) { @content; }
     } @else if $size == desktop {
         @media (min-width: 1200px) { @content; }
@@ -309,6 +311,13 @@ section#home-content-header {
             grid-template-columns: repeat(2, 1fr);
             grid-auto-rows: min-content 1fr;
             gap: .7rem;
+
+            @include for-size(phone){
+                grid-template-columns: 1fr;
+                &>.col-span2{
+                    grid-column: span 1;
+                }
+            }
         }
 
         & section.grid:first-child {

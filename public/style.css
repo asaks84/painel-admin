@@ -242,6 +242,14 @@ section#home-content-header div.boxed section.grid {
   grid-auto-rows: min-content 1fr;
   gap: 0.7rem;
 }
+@media (max-width: 599px) {
+  section#home-content-header div.boxed section.grid {
+    grid-template-columns: 1fr;
+  }
+  section#home-content-header div.boxed section.grid > .col-span2 {
+    grid-column: span 1;
+  }
+}
 section#home-content-header div.boxed section.grid:first-child {
   width: 100%;
 }
