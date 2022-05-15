@@ -5,37 +5,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.6.96/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="./style.css">
+    
     <title>Dashboard</title>
+
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="./script.js" defer></script>
 </head>
 
 <body>
-    <div id="wrapper" class="bg-bgMain">
+    <div id="wrapper">
         <!-- Full container grid -->
 
         <header class="flex">
             <div class="brand flex">
                 <img src="./images/logo-cp-admin.png" alt="" class="">
             </div>
+            
             <div class="flex">
-                <form id="search" action="#" method="get" class=" leading-none">
+                
+                <!-- search bar -->
+                <form id="search" action="#" method="get">
                     <div class=" align-top">
                         <input id="searchbar" type="search" placeholder=" "
                             class="text-xs focus:outline-none bg-bgSearchBar/[.0] focus:bg-bgSearchBar/50 text-white p-1.5  pl-3 pr-6 my-0.5 rounded-xl">
-                        <label for="searchbar">Search...</label>
+                        <label for="searchbar">Busca...</label>
                         <span class="mdi mdi-magnify"></span>
                     </div>
                 </form>
 
-
+            </div>
+            <!-- mobile responsive -->
+            <div class="mininav flex" >
+                <label class="mdi mdi-magnify"></label>
+                <label class="mdi mdi-menu"></label>
             </div>
         </header>
 
         <div class="flex col-span2">
             <!-- side content (menu & widgets)-->
-            <aside class="">
+            <aside>
 
                 <!-- menu -->
                 <nav>

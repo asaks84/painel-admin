@@ -1,7 +1,7 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
-// MIXIN MEDIA-QUERYES
+// MIXIN MEDIA-QUERIES
 @mixin responsive($size) {
     @if $size == phone {
         @media (max-width: 599px) { @content; }
@@ -18,7 +18,7 @@
     --title-color: rgb(58, 58, 58);
     --background-color: white;
     --bgHeader: #003459;
-    --bgSearchBar: #00171f59;
+    --bgSearchBar: #002a45;
     --headers: #003459;
     --bgMain: #EBF9FF;
     --textColor: #00171F;
@@ -29,6 +29,8 @@
     --headerMargin: .5rem 0;
     --box-shadow: 0 1rem 1rem -0.75rem rgb(105 96 215 / 18%);
     --wrap-first-column: 14rem;
+    --nav-txt-color: #5c5c5c;
+    ;
 }
 
 html,
@@ -59,18 +61,19 @@ h4 {
 p {
     font-size: .9rem;
 }
+
 a{
     text-decoration: none;
-    color:var(--textColor);
-    
-    &:visited{
-        color: var(--textColor);
+
+    &, &:visited{
+        color: var(--nav-txt-color);
     }
     &:hover{
         text-decoration: underline;
     }
     
 }
+
 
 // USEFUL CLASSES
 
@@ -136,59 +139,6 @@ $element-mb: 2rem;
 }
 
 
-// LOGIN STRUCTURE 
-
-
-
-#container {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    justify-content: space-evenly;
-    gap: 2rem;
-}
-
-.login>div {
-    
-    &:first-child{
-        margin-top: auto;
-    }
-
-    &>div {
-        &>* {
-            margin: .5rem;
-        }
-
-        &>h3 {
-            font-size: .9rem;
-        }
-
-    }
-}
-
-.login div {
-    flex-direction: row;
-    gap: 30px;
-}
-
-.login footer {
-    margin-top: auto;
-}
-
-div#imglogo {
-    align-items: center;
-}
-
-div#imglogo img {
-    display: block;
-    max-width: 180px;
-    max-height: 180px;
-    width: auto;
-    height: auto;
-}
-
-
 // DASHBOARD STRUCTURE 
 
 #wrapper {
@@ -197,6 +147,16 @@ div#imglogo img {
     grid-template-rows: min-content 1fr;
     background-color: var(--bgMain);
     min-height: 100%;
+
+    &.show::before{
+        content: "";
+        position: fixed;
+        background-color: black;
+        opacity: .5;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 
@@ -209,8 +169,6 @@ div#imglogo img {
 }
 
 
-
-
 // HEADER & FOOTER
 
 
@@ -218,13 +176,50 @@ header {
     grid-column: span 2;
     column-span: all;
     background: var(--bgHeader);
+    justify-content: space-between;
 }
 
-header>div {
+.brand {
     height: fit-content;
     width: 12.5rem;
     align-items: center;
     margin: var(--headerMargin);
+}
+header>div+div {
+    height: fit-content;
+    width: auto;
+    align-items: center;
+    margin: var(--headerMargin);
+    margin: auto .5rem;
+}
+
+.mininav{
+    color: white;
+    width: max-content;
+    display: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    @include responsive(tablet){
+        display: inline-block;
+        &>:first-child{
+            visibility: hidden;
+        }
+    }
+    @include responsive(phone){
+        &>:first-child{
+            visibility: visible;
+        }
+    }
+    
+
+    &>label{
+        display: inline-block;
+        line-height: 1.5rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        text-align: center;
+    }
 }
 
 footer {
@@ -240,20 +235,36 @@ footer {
 
 // ASIDE
 
-
 aside {
     min-width: var(--wrap-first-column);
     background-color: white;
     box-shadow: var(--box-shadow);
     z-index: 10;
+    flex-direction: column;
+    display: flex;
+    transition: left .5s ease;  
+    
+    &.show{
+        left: 0;
+    }
+
+    @include responsive(tablet){
+        inset: 0 auto;
+        position: absolute;
+        top: 0;
+        left: calc(var(--wrap-first-column) * -1);
+        
+    }
     
     &>*{
         margin: 1rem 2rem;
         font-size: .87rem;
+
         & h3{
             font-weight: bold;
             padding: .5rem 0;
         }
+
         &>ul {
             padding-left: 2rem;
             margin-left: .5rem;
@@ -263,14 +274,6 @@ aside {
                 display: block;
             }
         }
-    }
-
-
-    @include responsive(tablet){
-        position: absolute;
-        min-height: 100%;
-        left: calc(var(--wrap-first-column) * -1);
-        
     }
 }
 
@@ -286,12 +289,20 @@ nav {
         display: block;
         line-height: 2rem;
         font-weight: bold;
+        position: relative;
+        
+        &, &:visited{
+            color: var(--nav-txt-color);
+        }
 
         &:hover {
-            text-decoration: n;
+            text-decoration: none;
         }
         & > i{
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            &:hover{
+                text-decoration: none;
+            }
         }
         & > span{
             margin-left: .5rem;
@@ -306,10 +317,13 @@ nav {
 
 }
 
-// MAIN CONTENT
+
+// CONTENT
+
 
 header+div {
     width: 100%;
+    position: relative;
 }
 
 
@@ -415,7 +429,6 @@ section#home-content-header {
 // FORMS SETTINGS 
 // LOGIN FORM
 
-
 form#loginForm {
     min-width: 250px;
     position: relative;
@@ -495,11 +508,25 @@ form#loginForm {
 
 // SEARCH FORM 
 
-
 form#search {
+    &.show{
+        top:.5rem;
+    }
+    @include responsive(phone){
+        position: absolute;
+        top: -2.5rem;
+        left: 0;
+        width: 100%;
+        transition: top .15s ease-out;
+        
+    }
     >div {
         position: relative;
         margin-left: 10px;
+        
+        @include responsive(phone){
+            margin-right: 10px;
+        }
 
         >input {
             width: 20vw;
@@ -510,6 +537,16 @@ form#search {
             color: white;
             border-radius: .9rem;
 
+            @include responsive(phone){
+                background-color: var(--bgSearchBar);
+                width: 100%;
+                padding: {
+                    top: .7rem;
+                    bottom: .7rem;
+                }
+                
+            }
+
             &:placeholder-shown {
                 font-style: italic;
             }
@@ -518,6 +555,9 @@ form#search {
                 width: 35vw;
                 outline: none;
                 background-color: var(--bgSearchBar);
+                @include responsive(phone){
+                    width: 100%;
+                }
 
                 &+label {
                     opacity: 0;
@@ -526,6 +566,7 @@ form#search {
                 &+label+span {
                     opacity: .7;
                 }
+               
             }
         }
 
@@ -552,4 +593,56 @@ form#search {
             transition: opacity .5s .25s ease;
         }
     }
+}
+
+
+// LOGIN STRUCTURE 
+
+
+#container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    gap: 2rem;
+}
+
+.login>div {
+    
+    &:first-child{
+        margin-top: auto;
+    }
+
+    &>div {
+        &>* {
+            margin: .5rem;
+        }
+
+        &>h3 {
+            font-size: .9rem;
+        }
+
+    }
+}
+
+.login div {
+    flex-direction: row;
+    gap: 30px;
+}
+
+.login footer {
+    margin-top: auto;
+}
+
+div#imglogo {
+    align-items: center;
+}
+
+div#imglogo img {
+    display: block;
+    max-width: 180px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
 }
