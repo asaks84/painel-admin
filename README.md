@@ -9,3 +9,17 @@ Try to ~~combine Vanila CSS and the tailwind things~~ write a scss file with the
 
 Using specially nesting scss to make it easy to write code.
 I'm not using variables at the moment. I'm using root variables for that for now.
+
+### Things learned
+#### SASS
+ - **@mixin** (to create responsive elements).
+ -  **Nested selectors** 
+ - **Variables**
+
+#### JavaScript
+- **Capture: true** on EventListner to nock click on parents elements with others EventListners
+
+<hr>
+
+### Live Preview
+[Click here](https://asaks84.github.io/painel-admin/public/) to view demo.

@@ -177,7 +177,7 @@ header {
     grid-column: span 2;
     column-span: all;
     background: var(--bgHeader);
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .brand {
@@ -185,6 +185,7 @@ header {
     width: 12.5rem;
     align-items: center;
     margin: var(--headerMargin);
+    margin-right: auto;
 }
 header>div+div {
     height: fit-content;
@@ -249,6 +250,7 @@ aside {
         left: 0;
     }
 
+
     @include responsive(tablet){
         inset: 0 auto;
         position: absolute;
@@ -265,16 +267,6 @@ aside {
             font-weight: bold;
             padding: .5rem 0;
         }
-
-        &>ul {
-            padding-left: 2rem;
-            margin-left: .5rem;
-            border-left: 1px dashed gray;
-            & li{
-                line-height: 2rem;
-                display: block;
-            }
-        }
     }
 }
 
@@ -282,40 +274,56 @@ aside {
 // NAV
 
 
-nav {
+.mainnav {
 
-    // settings
-    
-    &>a {
-        display: block;
-        line-height: 2rem;
-        font-weight: bold;
-        position: relative;
-        
-        &, &:visited{
-            color: var(--nav-txt-color);
-        }
+    &>li {
+        &>ul {
+            padding-left: 2rem;
+            margin-left: .5rem;
+            border-left: 1px dashed gray;
 
-        &:hover {
-            text-decoration: none;
-        }
-        & > i{
-            font-size: 1.1rem;
-            &:hover{
-                text-decoration: none;
+            & li {
+                line-height: 2rem;
+                display: block;
             }
         }
-        & > span{
-            margin-left: .5rem;
+
+        &>a {
+            display: block;
+            line-height: 2rem;
+            position: relative;
+            font-weight: bold;
+
+            &,
+            &:visited {
+                color: var(--nav-txt-color);
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            &>i {
+                font-size: 1.1rem;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            &>span {
+                margin-left: .5rem;
+            }
         }
     }
-    & >.colapsed{
+
+    & li>.colapsed {
         display: none;
     }
-    &>.colapsed.show {
+
+    & li>.colapsed.show {
         display: block;
     }
-
 }
 
 

@@ -1,6 +1,6 @@
 const responsiveIcons = document.querySelectorAll('.mininav>*');
 const wrapper = document.querySelector('#wrapper');
-const mainNav = document.querySelector('aside');
+const sidebar = document.querySelector('aside');
 const searchBar = document.querySelector('form#search');
 
 function openItem(e){
@@ -15,8 +15,8 @@ function closeItems(e){
     }
     console.log('FUCK!')
     switch(true){
-        case mainNav.classList.contains('show'):
-            mainNav.classList.remove('show');
+        case sidebar.classList.contains('show'):
+            sidebar.classList.remove('show');
             break;
         case searchBar.classList.contains('show'):
             searchBar.classList.remove('show');
@@ -31,16 +31,24 @@ function showSelector(e){
 
     switch(true){
         case eClass.contains('nav'):
-            openItem(mainNav);
+            openItem(sidebar);
             break;
         case eClass.contains('searchbar'):
             openItem(searchBar);
             break;
     }
-
-    // if(e.target.classList.contains('nav')){
-    //     openItem(mainNav);
-    // } else if{}
 }
 wrapper.addEventListener('click', closeItems, {capture: true, useCapture: true});
 responsiveIcons.forEach(e => e.addEventListener('click', showSelector));
+
+// NAV COLAPSE x EXPAND
+
+const mainNav = document.querySelectorAll('.mainnav li');
+console.log(mainNav);
+
+function showToggler(e){
+
+    console.log(e.target);
+}
+
+mainNav.forEach(e => e.addEventListener('click',showToggler))
