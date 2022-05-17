@@ -406,6 +406,7 @@ form#loginForm > div > input[type=submit]:active {
 
 form#search.show {
   top: 0.5rem;
+  z-index: 10;
 }
 @media (max-width: 599px) {
   form#search {
