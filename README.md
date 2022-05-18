@@ -19,6 +19,9 @@ I'm not using variables at the moment. I'm using root variables for that for now
 #### JavaScript
 - **Capture: true** on EventListner to nock click on parents elements with others EventListners
 
+#### Git
+- **.gitignore** Setup gitignore for some extentions like *.map.css from SASS.
+
 <hr>
 
 ### Live Preview

@@ -4,12 +4,22 @@
 
 // MIXIN MEDIA-QUERIES
 @mixin responsive($size) {
-    @if $size == phone {
-        @media (max-width: 599px) { @content; }
-    } @else if $size == tablet {
-        @media (max-width: 900px) { @content; }
-    } @else if $size == desktop {
-        @media (min-width: 1200px) { @content; }
+    @if $size ==phone {
+        @media (max-width: 599px) {
+            @content;
+        }
+    }
+
+    @else if $size ==tablet {
+        @media (max-width: 900px) {
+            @content;
+        }
+    }
+
+    @else if $size ==desktop {
+        @media (min-width: 1200px) {
+            @content;
+        }
     }
 }
 
@@ -63,16 +73,18 @@ p {
     font-size: .9rem;
 }
 
-a{
+a {
     text-decoration: none;
 
-    &, &:visited{
+    &,
+    &:visited {
         color: var(--nav-txt-color);
     }
-    &:hover{
+
+    &:hover {
         text-decoration: underline;
     }
-    
+
 }
 
 
@@ -149,7 +161,7 @@ $element-mb: 2rem;
     background-color: var(--bgMain);
     min-height: 100%;
 
-    &.show::before{
+    &.show::before {
         content: "";
         position: fixed;
         background-color: black;
@@ -187,6 +199,7 @@ header {
     margin: var(--headerMargin);
     margin-right: auto;
 }
+
 header>div+div {
     height: fit-content;
     width: auto;
@@ -195,27 +208,29 @@ header>div+div {
     margin: auto .5rem;
 }
 
-.mininav{
+.responsiveNav {
     color: white;
     width: max-content;
     display: none;
     flex-direction: row;
     flex-wrap: nowrap;
 
-    @include responsive(tablet){
+    @include responsive(tablet) {
         display: inline-block;
-        &>:first-child{
+
+        &>:first-child {
             visibility: hidden;
         }
     }
-    @include responsive(phone){
-        &>:first-child{
+
+    @include responsive(phone) {
+        &>:first-child {
             visibility: visible;
         }
     }
-    
 
-    &>label{
+
+    &>label {
         display: inline-block;
         line-height: 1.5rem;
         height: 1.5rem;
@@ -244,26 +259,26 @@ aside {
     z-index: 10;
     flex-direction: column;
     display: flex;
-    transition: left .5s ease;  
-    
-    &.show{
+    transition: left .5s ease;
+
+    &.show {
         left: 0;
     }
 
 
-    @include responsive(tablet){
+    @include responsive(tablet) {
         inset: 0 auto;
         position: absolute;
         top: 0;
         left: calc(var(--wrap-first-column) * -1);
-        
+
     }
-    
-    &>*{
+
+    &>* {
         margin: 1rem 2rem;
         font-size: .87rem;
 
-        & h3{
+        & h3 {
             font-weight: bold;
             padding: .5rem 0;
         }
@@ -275,12 +290,19 @@ aside {
 
 
 .mainnav {
+    &:active{
+        background-color: white;
+    }
 
     &>li {
+        cursor: pointer;
+
         &>ul {
             padding-left: 2rem;
-            margin-left: .5rem;
             border-left: 1px dashed gray;
+            margin: .3rem 0;
+            margin-left: .5rem;
+            transition: all .5s ease;
 
             & li {
                 line-height: 2rem;
@@ -293,6 +315,7 @@ aside {
             line-height: 2rem;
             position: relative;
             font-weight: bold;
+            pointer-events: none;
 
             &,
             &:visited {
@@ -388,7 +411,7 @@ section#home-content-header {
         margin: 0 $highlight-spacing;
         flex-wrap: wrap;
 
-        @include responsive(desktop){
+        @include responsive(desktop) {
             gap: 1rem;
         }
 
@@ -403,9 +426,10 @@ section#home-content-header {
             grid-auto-rows: min-content 1fr;
             gap: .7rem;
 
-            @include responsive(phone){
+            @include responsive(phone) {
                 grid-template-columns: 1fr;
-                &>.col-span2{
+
+                &>.col-span2 {
                     grid-column: span 1;
                 }
             }
@@ -416,16 +440,18 @@ section#home-content-header {
 
             @include responsive(desktop) {
                 width: 55%;
-               
+
             }
 
         }
 
         & section.grid:nth-child(2) {
             width: 100%;
+
             @include responsive(desktop) {
                 width: 43.4%;
             }
+
             &>:not(:nth-child(1n+5)) {
                 border-radius: .5rem;
             }
@@ -518,23 +544,25 @@ form#loginForm {
 // SEARCH FORM 
 
 form#search {
-    &.show{
-        top:.5rem;
+    &.show {
+        top: .5rem;
         z-index: 10;
     }
-    @include responsive(phone){
+
+    @include responsive(phone) {
         position: absolute;
         top: -2.5rem;
         left: 0;
         width: 100%;
         transition: top .15s ease-out;
-        
+
     }
+
     >div {
         position: relative;
         margin-left: 10px;
-        
-        @include responsive(phone){
+
+        @include responsive(phone) {
             margin-right: 10px;
         }
 
@@ -547,14 +575,15 @@ form#search {
             color: white;
             border-radius: .9rem;
 
-            @include responsive(phone){
+            @include responsive(phone) {
                 background-color: var(--bgSearchBar);
                 width: 100%;
+
                 padding: {
                     top: .7rem;
                     bottom: .7rem;
                 }
-                
+
             }
 
             &:placeholder-shown {
@@ -565,7 +594,8 @@ form#search {
                 width: 35vw;
                 outline: none;
                 background-color: var(--bgSearchBar);
-                @include responsive(phone){
+
+                @include responsive(phone) {
                     width: 100%;
                 }
 
@@ -576,7 +606,7 @@ form#search {
                 &+label+span {
                     opacity: .7;
                 }
-               
+
             }
         }
 
@@ -619,8 +649,8 @@ form#search {
 }
 
 .login>div {
-    
-    &:first-child{
+
+    &:first-child {
         margin-top: auto;
     }
 

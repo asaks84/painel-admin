@@ -153,7 +153,7 @@ header > div + div {
   margin: auto 0.5rem;
 }
 
-.mininav {
+.responsiveNav {
   color: white;
   width: max-content;
   display: none;
@@ -161,19 +161,19 @@ header > div + div {
   flex-wrap: nowrap;
 }
 @media (max-width: 900px) {
-  .mininav {
+  .responsiveNav {
     display: inline-block;
   }
-  .mininav > :first-child {
+  .responsiveNav > :first-child {
     visibility: hidden;
   }
 }
 @media (max-width: 599px) {
-  .mininav > :first-child {
+  .responsiveNav > :first-child {
     visibility: visible;
   }
 }
-.mininav > label {
+.responsiveNav > label {
   display: inline-block;
   line-height: 1.5rem;
   height: 1.5rem;
@@ -219,10 +219,18 @@ aside > * h3 {
   padding: 0.5rem 0;
 }
 
+.mainnav:active {
+  background-color: white;
+}
+.mainnav > li {
+  cursor: pointer;
+}
 .mainnav > li > ul {
   padding-left: 2rem;
-  margin-left: 0.5rem;
   border-left: 1px dashed gray;
+  margin: 0.3rem 0;
+  margin-left: 0.5rem;
+  transition: all 0.5s ease;
 }
 .mainnav > li > ul li {
   line-height: 2rem;
@@ -233,6 +241,7 @@ aside > * h3 {
   line-height: 2rem;
   position: relative;
   font-weight: bold;
+  pointer-events: none;
 }
 .mainnav > li > a, .mainnav > li > a:visited {
   color: var(--nav-txt-color);
