@@ -335,7 +335,7 @@ section#home-content-header div.boxed section.grid:first-child {
 }
 @media (min-width: 1200px) {
   section#home-content-header div.boxed section.grid:first-child {
-    width: 55%;
+    width: 54%;
   }
 }
 section#home-content-header div.boxed section.grid:nth-child(2) {
