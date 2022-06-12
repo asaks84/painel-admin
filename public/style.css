@@ -311,6 +311,7 @@ section#home-content-header div.boxed {
 @media (min-width: 1200px) {
   section#home-content-header div.boxed {
     gap: 1rem;
+    justify-content: space-evenly;
   }
 }
 section#home-content-header div.boxed > section {

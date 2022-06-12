@@ -410,9 +410,11 @@ section#home-content-header {
         z-index: 1;
         margin: 0 $highlight-spacing;
         flex-wrap: wrap;
+        
 
         @include responsive(desktop) {
             gap: 1rem;
+            justify-content: space-evenly;
         }
 
 
